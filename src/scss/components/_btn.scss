@@ -1,0 +1,35 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 2em;
+
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $font-color-base;
+
+  border: 2px solid $border-color;
+  outline: none;
+
+  transition: all 0.3s ease 0s;
+
+  &:hover,
+  &:focus {
+  }
+
+  &:active {
+  }
+
+  //.btn--wide
+  &--wide {
+    width: 100%;
+  }
+
+  //.btn--center
+  &--center {
+    display: flex;
+    margin: 0 auto;
+  }
+}
