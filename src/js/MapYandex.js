@@ -5,7 +5,7 @@ export class MapYandex {
         mapContainerID: "map",
         src: "https://api-maps.yandex.ru/2.1/?lang=ru_RU",
         zoom: 15,
-        scrollZoom: false,
+        scrollZoom: true,
         pin: false,
         controls: false,
       },
@@ -27,7 +27,7 @@ export class MapYandex {
     const myMap = new ymaps.Map(this.settings.mapContainerID, {
       center: [this.settings.xCoord, this.settings.yCoord],
       zoom: this.settings.zoom,
-      controls: ["zoomControl"],
+      controls: [],
     });
 
     if (this.settings.pin) {
@@ -52,6 +52,7 @@ export class MapYandex {
 
     if (!this.settings.scrollZoom) {
       myMap.behaviors.disable("scrollZoom");
+      myMap.controls.add("zoomControl");
     }
 
     if (this.settings.controls) {

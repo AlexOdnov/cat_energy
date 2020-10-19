@@ -5,6 +5,10 @@ html {
   color: $font-color-base;
 
   background-color: $bg-color-base;
+
+  @media #{$tablet} {
+    font-size: $font-size-base-tab;
+  }
 }
 
 .container {
@@ -12,6 +16,11 @@ html {
   margin: 0 auto;
   padding-right: $container-padding;
   padding-left: $container-padding;
+
+  @media #{$tablet} {
+    padding-right: $container-padding-tab;
+    padding-left: $container-padding-tab;
+  }
 }
 
 .non-scrollable {
