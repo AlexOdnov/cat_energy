@@ -1,0 +1,8 @@
+.map {
+  background: no-repeat center/cover url(../../img/backgrounds/map-bg.png);
+
+  @media #{$desktop} {
+    background: no-repeat center/cover
+      url(../../img/backgrounds/map-bg-desktop.png);
+  }
+}
