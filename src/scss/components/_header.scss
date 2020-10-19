@@ -1,5 +1,5 @@
 .header {
-  $header-height: 90px;
+  $header-height: 60px;
 
   position: sticky;
   top: 0;
@@ -8,7 +8,7 @@
 
   width: 100%;
 
-  background-color: $color-accent-1;
+  background-color: transparent;
 
   &::after {
     content: "";
@@ -21,15 +21,34 @@
     width: 100vw;
     height: $header-height;
 
-    background-color: $color-accent-1;
+    background-color: $bg-color-base;
 
     @media #{$tablet} {
       display: none;
     }
   }
 
+  @media #{$tablet} {
+    position: static;
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  @media #{$desktop} {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    transform: translate(-50%, 0);
+  }
+
   &__container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     height: $header-height;
@@ -41,13 +60,16 @@
 
   &__logo {
     z-index: 10;
+
+    flex-basis: 174px;
+
+    @media #{$desktop} {
+      flex-basis: 202px;
+    }
   }
 
   &__mmt {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-
+    position: relative;
     z-index: 10;
 
     @media #{$tablet} {

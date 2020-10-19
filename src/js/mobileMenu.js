@@ -1,14 +1,14 @@
-import scrollToggler from "./scrollToggler";
-import focusController from "./focusController";
+import scrollToggler from './scrollToggler';
+import focusController from './focusController';
 
 export class MobileMenu {
   constructor(settings = {}) {
     this.settings = Object.assign(
       {
-        menuContainerSelector: ".header",
-        menuSelector: ".navigation",
-        btnSelector: ".mobile-menu-toggler",
-        breakpoint: "768",
+        menuContainerSelector: '.header',
+        menuSelector: '.navigation',
+        btnSelector: '.mobile-menu-toggler',
+        breakpoint: '768',
       },
       settings
     );
@@ -24,7 +24,7 @@ export class MobileMenu {
 
   init() {
     this.btn.addEventListener(
-      "click",
+      'click',
       function (e) {
         if (this.isMenuOpen) {
           this.menuClose(e);
@@ -35,7 +35,7 @@ export class MobileMenu {
     );
 
     window.addEventListener(
-      "click",
+      'click',
       function (e) {
         if (this.isMenuOpen && !this.menuContainer.contains(e.target)) {
           this.menuClose(e);
@@ -44,13 +44,13 @@ export class MobileMenu {
     );
 
     window.addEventListener(
-      "keydown",
+      'keydown',
       function (e) {
-        if (this.isMenuOpen && e.code === "Escape") {
+        if (this.isMenuOpen && e.code === 'Escape') {
           this.menuClose(e);
           return;
         }
-        if (this.isMenuOpen && e.code === "Tab") {
+        if (this.isMenuOpen && e.code === 'Tab') {
           focusController(e, this.menuContainer);
           return;
         }
@@ -58,7 +58,7 @@ export class MobileMenu {
     );
 
     window.addEventListener(
-      "resize",
+      'resize',
       function (e) {
         if (this.isMenuOpen && window.innerWidth > this.breakpoint) {
           this.menuClose(e);
@@ -71,12 +71,12 @@ export class MobileMenu {
     e.preventDefault();
 
     this.isMenuOpen = true;
-    this.menu.style.transition = "all 0.3s ease 0s";
-    this.menu.classList.add("active");
-    this.btn.classList.add("active");
+    this.menu.style.transition = 'all 0.3s ease 0s';
+    this.menu.classList.add('active');
+    this.btn.classList.add('active');
     scrollToggler(this.menu);
     setTimeout(() => {
-      this.menu.style.transition = "";
+      this.menu.style.transition = '';
     }, 350);
   }
 
@@ -84,12 +84,12 @@ export class MobileMenu {
     e.preventDefault();
 
     this.isMenuOpen = false;
-    this.menu.style.transition = "all 0.3s ease 0s";
-    this.menu.classList.remove("active");
-    this.btn.classList.remove("active");
+    this.menu.style.transition = 'all 0.3s ease 0s';
+    this.menu.classList.remove('active');
+    this.btn.classList.remove('active');
     scrollToggler(this.menu);
     setTimeout(() => {
-      this.menu.style.transition = "";
+      this.menu.style.transition = '';
     }, 350);
     this.btn.focus();
   }

@@ -70,11 +70,15 @@
       },
       {
         "type": "rule",
-        "selector": "&\\..+"
+        "selector": "&__.+"
       },
       {
         "type": "rule",
         "selector": "&--.+"
+      },
+      {
+        "type": "rule",
+        "selector": "&\\..+"
       },
       {
         "type": "rule",

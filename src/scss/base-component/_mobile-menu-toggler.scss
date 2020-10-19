@@ -38,6 +38,18 @@
     bottom: $mmt-size * 0.15;
   }
 
+  &:hover,
+  &:focus {
+    &::before,
+    &::after {
+      background-color: lighten($mmt-color, 30%);
+    }
+
+    .mobile-menu-toggler__element {
+      background-color: lighten($mmt-color, 30%);
+    }
+  }
+
   &__element {
     display: block;
     width: 100%;
@@ -47,19 +59,6 @@
     border-radius: $mmt-size * 0.05;
 
     transition: all 0.3s ease 0s;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    &::before,
-    &::after {
-      background-color: #fff;
-    }
-
-    .mobile-menu-toggler__element {
-      background-color: #fff;
-    }
   }
 
   &.active {

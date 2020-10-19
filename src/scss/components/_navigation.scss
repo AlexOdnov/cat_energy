@@ -1,5 +1,5 @@
 .navigation {
-  $header-height: 90px;
+  $header-height: 60px;
   $mob-mozilla: 45px; //mobile mozilla bug with bottom navbar
 
   position: absolute;
@@ -8,8 +8,6 @@
   z-index: 4;
 
   width: 100%;
-
-  color: $font-color-base;
 
   background-color: $bg-color-base;
   visibility: hidden;
@@ -22,8 +20,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    width: auto;
 
-    background-color: initial;
+    background-color: transparent;
     visibility: visible;
 
     transform: translateY(0);
@@ -46,24 +45,96 @@
   }
 
   &__item {
-    padding: 0.5em;
+    width: 100%;
+    padding: 1em;
+
+    border-top: 1px solid $border-color;
+
+    &:last-child {
+      border-bottom: 1px solid $border-color;
+    }
 
     @media #{$tablet} {
       flex-grow: 1;
+      width: initial;
+
+      border: none;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 
   &__link {
+    position: relative;
+
     display: block;
+
+    font-family: $font-accent;
+    font-weight: $font-weight-base;
+    font-size: $font-size-big-tab;
     text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $font-color-title;
 
     @media #{$tablet} {
+      padding-top: 8px;
+      padding-bottom: 8px;
+
       text-decoration: none;
-      transition: text-decoration 0.3s ease 0s;
+
+      transition: opacity 0.3s ease 0s;
+
+      &::before {
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+
+        display: block;
+        width: 0;
+        height: 2px;
+
+        background: $color-accent-1;
+
+        transition: width 0.3s ease 0s, opacity 0.3s ease 0s;
+      }
 
       &:hover,
       &:focus {
-        text-decoration: underline;
+        opacity: 0.6;
+
+        &::before {
+          width: 100%;
+        }
+      }
+
+      &:active {
+        opacity: 0.3;
+      }
+    }
+
+    @media #{$desktop} {
+      color: $font-color-light;
+
+      &::before {
+        background: $font-color-light;
+      }
+    }
+
+    &:not([href]) {
+      @media #{$tablet} {
+        &::before {
+          width: 100%;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          opacity: 1;
+        }
       }
     }
   }

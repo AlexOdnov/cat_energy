@@ -1,4 +1,24 @@
 .logo {
   display: flex;
   align-items: center;
+
+  transition: opacity 0.3s ease 0s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &__text {
+    display: block;
+    margin-left: 12px;
+
+    @media #{$desktop} {
+      margin-left: 14px;
+    }
+  }
 }

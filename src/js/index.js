@@ -1,4 +1,7 @@
 // import { MapYandex } from "./MapYandex";
+import { MobileMenu } from './MobileMenu';
+
+const mobileMenu = new MobileMenu();
 
 // const map = new MapYandex({
 //   xCoord: 59.938633647616214,
