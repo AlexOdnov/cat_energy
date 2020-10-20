@@ -1,6 +1,67 @@
 .contacts {
-  //.contacts__container
-  &__container {
+  position: relative;
+
+  //.contacts__text
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 20px;
+
+    background: $bg-color-base;
+
+    @media #{$tablet} {
+      padding: 60px 70px;
+    }
+
+    @media #{$desktop} {
+      position: absolute;
+      top: 50%;
+      left: 110px;
+      z-index: 2;
+
+      width: 570px;
+
+      transform: translate(0, -50%);
+    }
+  }
+
+  //.contacts__title
+  &__title {
+    max-width: 175px;
+
+    font-family: $font-accent;
+    font-weight: $font-weight-base;
+    font-size: $font-size-big;
+    text-transform: uppercase;
+    color: $font-color-title;
+
+    @media #{$tablet} {
+      font-size: $font-size-big-tab;
+    }
+  }
+
+  //.contacts__address
+  &__address {
+    font-style: normal;
+
+    @media #{$tablet} {
+      text-align: right;
+    }
+
+    @media #{$desktop} {
+      text-align: left;
+    }
+  }
+
+  //.contacts__city
+  &__city {
+    display: block;
+    white-space: nowrap;
+
+    @media #{$tablet} {
+      margin-top: 15px;
+    }
   }
 
   //.contacts__map
