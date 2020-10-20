@@ -11,7 +11,7 @@
   background-color: transparent;
 
   &::after {
-    content: "";
+    content: '';
 
     position: absolute;
     top: 0;
@@ -36,14 +36,8 @@
   }
 
   @media #{$desktop} {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
     padding-top: 40px;
     padding-bottom: 40px;
-
-    transform: translate(-50%, 0);
   }
 
   &__container {
@@ -74,6 +68,24 @@
 
     @media #{$tablet} {
       display: none;
+    }
+  }
+
+  &--index {
+    @media #{$desktop} {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      color: $font-color-light;
+
+      transform: translate(-50%, 0);
+
+      .navigation__link {
+        &::before {
+          background: currentColor;
+        }
+      }
     }
   }
 }
