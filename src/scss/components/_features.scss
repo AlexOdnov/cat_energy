@@ -1,0 +1,34 @@
+.features {
+  //.features__container
+  &__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @media #{$desktop} {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+  }
+
+  //.features__list
+  &__list {
+    display: grid;
+    grid-auto-rows: minmax(266px, min-content);
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @media #{$tablet} {
+      grid-auto-rows: minmax(375px, min-content);
+      grid-template-columns: repeat(auto-fit, minmax(570px, 1fr));
+      gap: 30px;
+    }
+
+    @media #{$desktop} {
+      column-gap: 80px;
+    }
+  }
+
+  //.features__item
+  &__item {
+  }
+}
