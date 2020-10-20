@@ -1,0 +1,116 @@
+.promo {
+  /* stylelint-disable */
+  background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgb(255, 255, 255) 35%,
+      rgba(0, 0, 0, 0) 35%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(../../img/backgrounds/promo-bg-mobile.png);
+  /* stylelint-enable */
+  background-position: center, top center;
+  background-size: cover, 100% auto;
+  background-repeat: no-repeat, no-repeat;
+
+  @media #{$tablet} {
+    background: none;
+  }
+
+  @media #{$desktop} {
+    padding-top: 158px;
+
+    background: no-repeat 100% 0% / 50% auto
+      url(../../img/backgrounds/promo-bg.png);
+  }
+
+  //.promo__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    color: $font-color-light;
+
+    @media #{$tablet} {
+      position: relative;
+
+      align-items: flex-start;
+      padding-bottom: 525px;
+      padding-left: $container-padding-tab + 80px;
+
+      color: $font-color-title;
+    }
+
+    @media #{$desktop} {
+      padding-top: 75px;
+      padding-bottom: 185px;
+    }
+  }
+
+  //.promo__title
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-family: $font-accent;
+    font-weight: $font-weight-base;
+    font-size: $font-size-title;
+    line-height: $font-size-title;
+    text-align: center;
+
+    @media #{$tablet} {
+      max-width: 420px;
+      margin-bottom: 40px;
+
+      font-size: $font-size-title-tab;
+      line-height: $font-size-title-tab;
+      text-align: left;
+    }
+  }
+
+  //.promo__text
+  &__text {
+    margin-bottom: 25px;
+
+    font-family: $font-accent;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media #{$tablet} {
+      max-width: 420px;
+      margin-bottom: 40px;
+
+      text-align: left;
+    }
+  }
+
+  //.promo__img
+  &__img {
+    @media #{$tablet} {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: -1;
+
+      transform: translate(-50%, 0);
+    }
+
+    @media #{$desktop} {
+      bottom: 40px;
+      left: 475px;
+      z-index: 1;
+
+      transform: translate(0);
+    }
+  }
+
+  //.promo__btn
+  &__btn {
+    @media #{$tablet} {
+      font-size: $font-size-big-tab;
+    }
+  }
+}

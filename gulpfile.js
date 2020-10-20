@@ -1,28 +1,28 @@
-const { src, dest, parallel, series, watch } = require("gulp");
-const del = require("del");
-const notify = require("gulp-notify");
-const rename = require("gulp-rename");
-const replace = require("gulp-replace");
-const browserSync = require("browser-sync").create();
-const fileinclude = require("gulp-file-include");
-const htmlmin = require("gulp-htmlmin");
-const sassglob = require("gulp-sass-glob");
-const sass = require("gulp-sass");
-const autoprefixer = require("gulp-autoprefixer");
-const gcmq = require("gulp-group-css-media-queries");
-const csso = require("gulp-csso");
-const imagemin = require("gulp-imagemin");
-const webp = require("gulp-webp");
-const favicon = require("gulp-favicons");
-const svgsprite = require("gulp-svg-sprite");
-const webpackstream = require("webpack-stream");
+const { src, dest, parallel, series, watch } = require('gulp');
+const del = require('del');
+const notify = require('gulp-notify');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const browserSync = require('browser-sync').create();
+const fileinclude = require('gulp-file-include');
+const htmlmin = require('gulp-htmlmin');
+const sassglob = require('gulp-sass-glob');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const gcmq = require('gulp-group-css-media-queries');
+const csso = require('gulp-csso');
+const imagemin = require('gulp-imagemin');
+const webp = require('gulp-webp');
+const favicon = require('gulp-favicons');
+const svgsprite = require('gulp-svg-sprite');
+const webpackstream = require('webpack-stream');
 
-const projectFolder = "./build/";
-const sourceFolder = "./src/";
-const localIPAddress = "192.168.1.40";
+const projectFolder = './build/';
+const sourceFolder = './src/';
+const localIPAddress = '192.168.1.40';
 const browserPath = [
-  "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-  "C:\\Program Files\\Firefox Developer Edition\\firefox.exe",
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
 ];
 
 const path = {
@@ -63,14 +63,14 @@ const html = () => {
   return src(path.source.html)
     .pipe(
       fileinclude().on(
-        "error",
+        'error',
         notify.onError({
-          title: "HTML compiler error",
-          message: "<%= error.message %>",
+          title: 'HTML compiler error',
+          message: '<%= error.message %>',
         })
       )
     )
-    .pipe(replace(/\.\.\//g, "./"))
+    .pipe(replace(/\.\.\//g, './'))
     .pipe(
       htmlmin({
         removeComments: true,
@@ -85,23 +85,23 @@ const css = () => {
   return src(path.source.css)
     .pipe(
       sassglob().on(
-        "error",
+        'error',
         notify.onError({
-          title: "SCSS import error",
-          message: "<%= error.message %>",
+          title: 'SCSS import error',
+          message: '<%= error.message %>',
         })
       )
     )
     .pipe(
       sass().on(
-        "error",
+        'error',
         notify.onError({
-          title: "SCSS compiler error",
-          message: "<%= error.message %>",
+          title: 'SCSS compiler error',
+          message: '<%= error.message %>',
         })
       )
     )
-    .pipe(replace(/\.\.\/\.\.\//g, "../"))
+    .pipe(replace(/\.\.\/\.\.\//g, '../'))
     .pipe(gcmq())
     .pipe(
       autoprefixer({
@@ -115,7 +115,7 @@ const css = () => {
     )
     .pipe(
       rename({
-        suffix: ".min",
+        suffix: '.min',
       })
     )
     .pipe(dest(path.project.css))
@@ -149,13 +149,13 @@ const contentImg = () => {
           progressive: true,
         }),
         imagemin.optipng({
-          optimizationLevel: 3,
+          optimizationLevel: 2,
         }),
         imagemin.svgo(),
       ])
     )
     .pipe(dest(path.project.contentImg))
-    .pipe(webp())
+    .pipe(webp({ quality: 100 }))
     .pipe(dest(path.project.contentImg))
     .pipe(browserSync.stream());
 };
@@ -193,13 +193,13 @@ const svgSprite = () => {
         }),
       ])
     )
-    .pipe(replace(/class=".*?"/g, ""))
+    .pipe(replace(/class=".*?"/g, ''))
     .pipe(
       svgsprite({
         mode: {
           symbol: {
-            sprite: "sprite.svg",
-            dest: "./",
+            sprite: 'sprite.svg',
+            dest: './',
           },
         },
         svg: { xmlDeclaration: false, doctypeDeclaration: false },
@@ -213,10 +213,10 @@ const js = () => {
   return src(path.source.js)
     .pipe(
       webpackstream({
-        mode: "development",
-        devtool: "source-map",
+        mode: 'development',
+        devtool: 'source-map',
         output: {
-          filename: "index.js",
+          filename: 'index.js',
         },
         module: {
           rules: [
@@ -224,17 +224,17 @@ const js = () => {
               test: /\.js$/,
               exclude: /node_modules/,
               use: {
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
-                  presets: ["@babel/preset-env"],
-                  plugins: ["@babel/plugin-proposal-class-properties"],
+                  presets: ['@babel/preset-env'],
+                  plugins: ['@babel/plugin-proposal-class-properties'],
                 },
               },
             },
           ],
         },
-      }).on("error", function (err) {
-        this.emit("end");
+      }).on('error', function (err) {
+        this.emit('end');
       })
     )
     .pipe(dest(path.project.js))
@@ -245,10 +245,10 @@ const jsBuild = () => {
   return src(path.source.js)
     .pipe(
       webpackstream({
-        mode: "production",
+        mode: 'production',
         devtool: false,
         output: {
-          filename: "index.js",
+          filename: 'index.js',
         },
         module: {
           rules: [
@@ -256,20 +256,20 @@ const jsBuild = () => {
               test: /\.js$/,
               exclude: /node_modules/,
               use: {
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
-                  presets: ["@babel/preset-env"],
-                  plugins: ["@babel/plugin-proposal-class-properties"],
+                  presets: ['@babel/preset-env'],
+                  plugins: ['@babel/plugin-proposal-class-properties'],
                 },
               },
             },
           ],
         },
       }).on(
-        "error",
+        'error',
         notify.onError({
-          title: "JS compiler error",
-          message: "<%= error.message %>",
+          title: 'JS compiler error',
+          message: '<%= error.message %>',
         })
       )
     )
@@ -300,7 +300,7 @@ const ieTest = () => {
     server: {
       baseDir: projectFolder,
     },
-    browser: "iexplore",
+    browser: 'iexplore',
   });
 };
 

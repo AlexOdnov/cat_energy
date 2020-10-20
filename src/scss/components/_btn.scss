@@ -2,24 +2,32 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1em 2em;
+  padding: 0.5em 1em;
 
-  font-weight: $font-weight-bold;
+  font-family: $font-accent;
+  font-weight: $font-weight-base;
   font-size: $font-size-base;
   text-decoration: none;
   text-transform: uppercase;
-  color: $font-color-base;
+  color: $font-color-btn;
 
-  border: 2px solid $border-color;
+  background-color: $bg-color-btn;
+  border: transparent;
   outline: none;
 
   transition: all 0.3s ease 0s;
 
   &:hover,
   &:focus {
+    color: $font-color-btn--hover;
+
+    background-color: $bg-color-btn--hover;
   }
 
   &:active {
+    color: $font-color-btn--active;
+
+    background-color: $bg-color-btn--hover;
   }
 
   //.btn--wide
