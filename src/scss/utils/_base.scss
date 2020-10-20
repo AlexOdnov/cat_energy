@@ -23,6 +23,19 @@ html {
   }
 }
 
+.title {
+  margin: 0;
+
+  font-family: $font-accent;
+  font-weight: $font-weight-base;
+  font-size: $font-size-title;
+  color: $font-color-title;
+
+  @media #{$tablet} {
+    font-size: $font-size-title-tab;
+  }
+}
+
 .non-scrollable {
   overflow-y: hidden;
 }
