@@ -1,5 +1,6 @@
 import { MobileMenu } from './MobileMenu';
 import { AdaptiveCenterMap } from './AdaptiveCenterMap';
+import { RangeSlider } from './RangeSlider';
 
 const mobileMenu = new MobileMenu();
 
@@ -18,3 +19,7 @@ const map = new AdaptiveCenterMap({
   newYCenter: 59.938633647616214,
   newXCenter: 30.317,
 });
+
+if (document.querySelector('#rangeSlider')) {
+  const slider = new RangeSlider('rangeSlider');
+}

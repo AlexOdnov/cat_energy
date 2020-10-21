@@ -76,7 +76,7 @@
     }
   }
 
-  /* stylelint-disable*/
+  /* stylelint-disable */
   //.slider__range
   &__range {
     &:focus {
@@ -88,10 +88,6 @@
     width: 100%;
     background: transparent;
 
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-    }
-
     //track style
     $bg-color: $bg-color-base;
     $brdr-color: $border-color;
@@ -99,6 +95,7 @@
     $height: 12px;
 
     &::-webkit-slider-runnable-track {
+      -webkit-appearance: none;
       box-sizing: content-box;
       width: 100%;
       height: $height;
@@ -106,6 +103,7 @@
       background: $bg-color;
       border: 1px solid $brdr-color;
       border-radius: $brdr-radius;
+
       cursor: pointer;
     }
 
@@ -121,6 +119,7 @@
       background: $bg-color;
       border: 1px solid $brdr-color;
       border-radius: $brdr-radius;
+
       cursor: pointer;
     }
 
@@ -141,6 +140,7 @@
       background: $bg-color-thumb;
       border: $brdr-width-thumb solid $brdr-color-thumb;
       border-radius: $brdr-radius-thumb;
+
       cursor: pointer;
     }
 
@@ -152,6 +152,7 @@
       background: $bg-color-thumb;
       border: $brdr-width-thumb solid $brdr-color-thumb;
       border-radius: $brdr-radius-thumb;
+
       cursor: pointer;
     }
 
@@ -197,7 +198,6 @@
       $height-thumb: 34px;
 
       &::-webkit-slider-thumb {
-        -webkit-appearance: none;
         width: $width-thumb;
         height: $height-thumb;
 
@@ -205,14 +205,14 @@
         border: $brdr-width-thumb solid $brdr-color-thumb;
         border-radius: $brdr-radius-thumb;
 
-        cursor: pointer;
+        transform: translate(0, calc(-50% + 3px));
         transition: all 0.3s ease 0s;
 
-        transform: translate(0, calc(-50% + 2 * #{$brdr-width-thumb}));
+        cursor: pointer;
 
         &:hover,
         &:focus {
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.19);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.19);
         }
 
         &:active {
@@ -228,12 +228,13 @@
         border: $brdr-width-thumb solid $brdr-color-thumb;
         border-radius: $brdr-radius-thumb;
 
-        cursor: pointer;
         transition: all 0.3s ease 0s;
+
+        cursor: pointer;
 
         &:hover,
         &:focus {
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.19);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.19);
         }
 
         &:active {
@@ -242,5 +243,5 @@
       }
     }
   }
-  /* stylelint-enable*/
+  /* stylelint-enable */
 }
