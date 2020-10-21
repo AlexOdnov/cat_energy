@@ -98,5 +98,18 @@ $d-laptop: (
   max-width: $bp-des,
 );
 
-//$gradient-base: ;
-//$gradient-alt: ;
+//$gradient-base: linear-gradient(
+//0deg,
+//$bg-color-dark 0%,
+//$bg-color-dark 50%,
+//rgba(0, 0, 0, 0) 50%,
+//rgba(0, 0, 0, 0) 100%
+//);
+
+//$gradient-alt: radial-gradient(
+//circle,
+//$color-accent-1 0,
+//$color-accent-1 5px,
+//$bg-color-base 5px,
+//$bg-color-base 100%
+//);

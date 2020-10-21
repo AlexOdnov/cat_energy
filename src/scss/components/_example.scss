@@ -1,0 +1,121 @@
+.example {
+  background: $bg-color-dark;
+
+  @media #{$tablet} {
+    background-color: $bg-color-base;
+    background-image: linear-gradient(
+      0deg,
+      $bg-color-dark 0%,
+      $bg-color-dark 43%,
+      rgba(0, 0, 0, 0) 43%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  @media #{$desktop} {
+    background-image: linear-gradient(
+      0deg,
+      $bg-color-dark 0%,
+      $bg-color-dark 71%,
+      rgba(0, 0, 0, 0) 71%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  //.example__container
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    @media #{$tablet} {
+      grid-template-columns: 360px 1fr;
+      gap: 50px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    @media #{$desktop} {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0;
+      padding-top: 0;
+      padding-bottom: 75px;
+    }
+  }
+
+  //.example__title
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+
+    @media #{$desktop} {
+      grid-column: 1 / 2;
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+  }
+
+  //.example__text
+  &__text {
+    grid-column: 1 / -1;
+
+    @media #{$desktop} {
+      grid-column: 1 / 2;
+      max-width: 440px;
+    }
+  }
+
+  //.example__statistic
+  &__statistic {
+    align-self: center;
+    justify-self: center;
+
+    @media #{$tablet} {
+      justify-self: start;
+      grid-column: 1 / 2;
+    }
+  }
+
+  //.example__cost
+  &__cost {
+    font-family: $font-accent;
+    text-align: center;
+    text-transform: uppercase;
+    color: $font-color-title;
+
+    @media #{$tablet} {
+      align-self: center;
+
+      font-size: $font-size-big-tab;
+      text-align: right;
+    }
+
+    @media #{$desktop} {
+      display: flex;
+      justify-self: start;
+      grid-column: 1 / 2;
+      gap: 60px;
+    }
+  }
+
+  //.example__cost-value
+  &__cost-value {
+    @media #{$tablet} {
+      display: block;
+    }
+  }
+
+  //.example__slider
+  &__slider {
+    @media #{$tablet} {
+      grid-column: 1 / -1;
+    }
+
+    @media #{$desktop} {
+      grid-column: 2 / -1;
+      grid-row: 1 / 5;
+    }
+  }
+}

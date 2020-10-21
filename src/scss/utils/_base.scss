@@ -29,6 +29,7 @@ html {
   font-family: $font-accent;
   font-weight: $font-weight-base;
   font-size: $font-size-title;
+  line-height: 1;
   color: $font-color-title;
 
   @media #{$tablet} {

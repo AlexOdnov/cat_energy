@@ -1,0 +1,62 @@
+.statistic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 280px;
+  padding-bottom: 15px;
+
+  @media #{$tablet} {
+    max-width: 360px;
+    padding-bottom: 20px;
+  }
+
+  //.statistic__item
+  &__item {
+    position: relative;
+
+    padding: 10px;
+
+    font-family: $font-accent;
+    font-size: $font-size-special;
+    text-align: center;
+    text-transform: uppercase;
+    color: $font-color-title;
+
+    border: 1px solid $border-color;
+    border-radius: 4px;
+
+    @media #{$tablet} {
+      font-size: $font-size-special-tab;
+    }
+  }
+
+  //.statistic__mark
+  &__mark {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    padding: 0 15px;
+
+    font-family: $font-base;
+    font-size: $font-size-small;
+    line-height: 1;
+    text-align: center;
+    text-transform: none;
+    color: $font-color-base;
+
+    background: $bg-color-dark;
+
+    transform: translate(-50%, 65%);
+
+    @media #{$tablet} {
+      font-size: $font-size-small-tab;
+      background: $bg-color-base;
+    }
+
+    @media #{$desktop} {
+      background: $bg-color-dark;
+    }
+  }
+}
