@@ -9,6 +9,7 @@
   width: 100%;
 
   background-color: transparent;
+  border-bottom: 1px solid $border-color;
 
   &::after {
     content: '';
@@ -33,6 +34,8 @@
 
     padding-top: 25px;
     padding-bottom: 25px;
+
+    border: none;
   }
 
   @media #{$desktop} {
