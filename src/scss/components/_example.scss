@@ -97,6 +97,7 @@
       justify-self: start;
       grid-column: 1 / 2;
       gap: 60px;
+      min-height: 40px;
     }
   }
 
@@ -114,6 +115,7 @@
     }
 
     @media #{$desktop} {
+      align-self: end;
       grid-column: 2 / -1;
       grid-row: 1 / 5;
     }

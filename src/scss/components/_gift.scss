@@ -1,0 +1,70 @@
+.gift {
+  position: relative;
+
+  padding: 185px 60px 40px;
+
+  background: no-repeat center/cover url(../../img/backgrounds/gift-bg.jpg);
+  background-color: $color-accent-1;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 60px;
+    left: 50%;
+
+    display: block;
+    width: 80px;
+    height: 82px;
+
+    background: no-repeat center/cover url(../../img/backgrounds/gift.svg);
+
+    transform: translate(-50%, 0);
+  }
+
+  @media #{$tablet} {
+    padding: 70px;
+    padding-right: 160px;
+    padding-left: 50%;
+
+    background: no-repeat center/cover
+      url(../../img/backgrounds/gift-bg-tablet.jpg);
+
+    &::before {
+      top: 50%;
+      left: 80px;
+
+      transform: translate(0, -50%);
+    }
+  }
+
+  @media #{$desktop} {
+    padding: 185px 40px 40px;
+
+    background: no-repeat center/cover url(../../img/backgrounds/gift-bg.jpg);
+
+    &::before {
+      top: 60px;
+      left: 50%;
+
+      transform: translate(-50%, 0);
+    }
+  }
+
+  //.gift__text
+  &__text {
+    font-size: $font-size-big;
+    text-align: center;
+    color: $font-color-light;
+
+    @media #{$tablet} {
+      font-size: $font-size-big-tab;
+      text-align: left;
+    }
+
+    @media #{$desktop} {
+      font-size: $font-size-big;
+      text-align: center;
+    }
+  }
+}
