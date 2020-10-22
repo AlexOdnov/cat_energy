@@ -1,5 +1,8 @@
 .goods-list {
   @media #{$tablet} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(565px, 1fr));
+
     border: 1px solid $border-color;
   }
 
@@ -89,6 +92,7 @@
 
   //.goods-list__btn
   &__btn {
+    align-self: end;
     grid-column: 1 / -1;
 
     @media #{$desktop} {

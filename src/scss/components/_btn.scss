@@ -40,4 +40,10 @@
     display: flex;
     margin: 0 auto;
   }
+
+  //.btn--grey
+  &--grey {
+    color: $font-color-base;
+    background: $bg-color-dark;
+  }
 }
