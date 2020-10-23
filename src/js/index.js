@@ -25,7 +25,9 @@ if (document.querySelector('#rangeSlider')) {
   const slider = new RangeSlider('rangeSlider');
 }
 
-const card = new CardGrid({
-  cardContainerSelector: '.card-grid__container',
-  src: './data/cards.json',
-});
+if (document.querySelector('.card-grid__container')) {
+  const card = new CardGrid({
+    cardContainerSelector: '.card-grid__container',
+    src: './data/cards.json',
+  });
+}

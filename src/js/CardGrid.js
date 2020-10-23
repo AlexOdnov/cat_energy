@@ -36,8 +36,8 @@ export class CardGrid {
       <a class="product-card__link" href="#">
         <img
           class="product-card__img"
-          src="../img/contentImage/${img}.png"
-          srcset="../img/contentImage/${img}.webp"
+          src="./img/contentImage/${img}.png"
+          srcset="./img/contentImage/${img}.webp"
           alt="${title}"
         />
       </a>
