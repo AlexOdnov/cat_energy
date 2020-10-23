@@ -1,0 +1,51 @@
+{
+  "1": {
+    "title": "Cat Energy PRO 500&nbsp;г",
+    "img": "catalog-1",
+    "weight": "500",
+    "taste": "курица",
+    "price": "700"
+  },
+  "2": {
+    "title": "Cat Energy PRO 1000&nbsp;г",
+    "img": "catalog-2",
+    "weight": "1000",
+    "taste": "курица",
+    "price": "1000"
+  },
+  "3": {
+    "title": "Cat Energy PRO 500&nbsp;г",
+    "img": "catalog-3",
+    "weight": "500",
+    "taste": "рыба",
+    "price": "700"
+  },
+  "4": {
+    "title": "Cat Energy PRO 1000&nbsp;г",
+    "img": "catalog-4",
+    "weight": "1000",
+    "taste": "рыба",
+    "price": "1000"
+  },
+  "5": {
+    "title": "Cat Energy SLIM 500&nbsp;г",
+    "img": "catalog-5",
+    "weight": "500",
+    "taste": "гречка",
+    "price": "400"
+  },
+  "6": {
+    "title": "Cat Energy SLIM 1000&nbsp;г",
+    "img": "catalog-6",
+    "weight": "1000",
+    "taste": "гречка",
+    "price": "700"
+  },
+  "7": {
+    "title": "Cat Energy SLIM 500&nbsp;г",
+    "img": "catalog-7",
+    "weight": "500",
+    "taste": "рис",
+    "price": "500"
+  }
+}
