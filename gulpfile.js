@@ -34,6 +34,7 @@ const path = {
     bgImg: `${projectFolder}img/backgrounds/`,
     contentImg: `${projectFolder}img/contentImage/`,
     svgSprite: `${projectFolder}img/svgSprite/`,
+    data: `${projectFolder}data/`,
   },
   source: {
     html: [`${sourceFolder}html/*.html`, `!${sourceFolder}html/_*.html`],
@@ -43,6 +44,7 @@ const path = {
     bgImg: `${sourceFolder}img/backgrounds/*`,
     contentImg: `${sourceFolder}img/contentImage/*`,
     svgSprite: `${sourceFolder}img/svgSprite/*.svg`,
+    data: `${sourceFolder}data/*`,
   },
   watch: {
     html: `${sourceFolder}html/*.html`,
@@ -52,6 +54,7 @@ const path = {
     bgImg: `${sourceFolder}img/backgrounds/*`,
     contentImg: `${sourceFolder}img/contentImage/*`,
     svgSprite: `${sourceFolder}img/svgSprite/*.svg`,
+    data: `${sourceFolder}data/*`,
   },
 };
 
@@ -277,6 +280,10 @@ const jsBuild = () => {
     .pipe(browserSync.stream());
 };
 
+const data = () => {
+  return src(path.source.data).pipe(dest(path.project.data));
+};
+
 const server = () => {
   browserSync.init({
     server: {
@@ -293,6 +300,7 @@ const server = () => {
   watch(path.watch.favicons, favicons);
   watch(path.watch.svgSprite, svgSprite);
   watch(path.watch.js, js);
+  watch(path.watch.data, data);
 };
 
 const ieTest = () => {
@@ -322,11 +330,11 @@ exports.ieTest = ieTest;
 
 exports.default = series(
   clean,
-  parallel(html, css, js, bgImg, contentImg, favicons, svgSprite),
+  parallel(html, css, js, bgImg, contentImg, favicons, svgSprite, data),
   server
 );
 
 exports.build = series(
   clean,
-  parallel(html, css, jsBuild, bgImg, contentImg, favicons, svgSprite)
+  parallel(html, css, jsBuild, bgImg, contentImg, favicons, svgSprite, data)
 );

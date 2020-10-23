@@ -20,10 +20,8 @@
     "stylelint-fix": "stylelint \"**/*.scss\" --fix --output-file stylelintReport.txt"
   },
   "browserslist": [
-    "last 3 version",
-    "not dead",
-    "> 1%",
-    "ie 11"
+    "last 2 Chrome versions",
+    "last 2 Firefox versions"
   ],
   "prettier": {
     "singleQuote": true

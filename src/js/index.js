@@ -1,6 +1,7 @@
 import { MobileMenu } from './MobileMenu';
 import { AdaptiveCenterMap } from './AdaptiveCenterMap';
 import { RangeSlider } from './RangeSlider';
+import { CardGrid } from './CardGrid';
 
 const mobileMenu = new MobileMenu();
 
@@ -23,3 +24,8 @@ const map = new AdaptiveCenterMap({
 if (document.querySelector('#rangeSlider')) {
   const slider = new RangeSlider('rangeSlider');
 }
+
+const card = new CardGrid({
+  cardContainerSelector: '.card-grid__container',
+  src: './data/cards.json',
+});
