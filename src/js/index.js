@@ -5,6 +5,17 @@ import { CardGrid } from './CardGrid';
 
 const mobileMenu = new MobileMenu();
 
+if (document.querySelector('#rangeSlider')) {
+  const slider = new RangeSlider('rangeSlider');
+}
+
+if (document.querySelector('.card-grid__container')) {
+  const card = new CardGrid({
+    cardContainerSelector: '.card-grid__container',
+    src: './data/cards.json',
+  });
+}
+
 const map = new AdaptiveCenterMap({
   yCenter: 59.938633647616214,
   xCenter: 30.32304549758399,
@@ -20,14 +31,3 @@ const map = new AdaptiveCenterMap({
   newYCenter: 59.938633647616214,
   newXCenter: 30.317,
 });
-
-if (document.querySelector('#rangeSlider')) {
-  const slider = new RangeSlider('rangeSlider');
-}
-
-if (document.querySelector('.card-grid__container')) {
-  const card = new CardGrid({
-    cardContainerSelector: '.card-grid__container',
-    src: './data/cards.json',
-  });
-}

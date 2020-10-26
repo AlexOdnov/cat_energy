@@ -8,9 +8,11 @@ const fileinclude = require('gulp-file-include');
 const htmlmin = require('gulp-htmlmin');
 const sassglob = require('gulp-sass-glob');
 const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const gcmq = require('gulp-group-css-media-queries');
-const csso = require('gulp-csso');
+const postcss = require('gulp-postcss');
+const postcssWebp = require('webp-in-css/plugin');
+const postcssAutoprefixer = require('autoprefixer');
+const postcssMQpack = require('css-mqpacker');
+const postcssCsso = require('postcss-csso');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const favicon = require('gulp-favicons');
@@ -105,16 +107,13 @@ const css = () => {
       )
     )
     .pipe(replace(/\.\.\/\.\.\//g, '../'))
-    .pipe(gcmq())
     .pipe(
-      autoprefixer({
-        cascade: false,
-      })
-    )
-    .pipe(
-      csso({
-        forceMediaMerge: false,
-      })
+      postcss([
+        postcssWebp(),
+        postcssAutoprefixer(),
+        postcssCsso(),
+        postcssMQpack(),
+      ])
     )
     .pipe(
       rename({
@@ -134,11 +133,13 @@ const bgImg = () => {
           progressive: true,
         }),
         imagemin.optipng({
-          optimizationLevel: 3,
+          optimizationLevel: 2,
         }),
         imagemin.svgo(),
       ])
     )
+    .pipe(dest(path.project.bgImg))
+    .pipe(webp({ quality: 95 }))
     .pipe(dest(path.project.bgImg))
     .pipe(browserSync.stream());
 };
@@ -158,7 +159,7 @@ const contentImg = () => {
       ])
     )
     .pipe(dest(path.project.contentImg))
-    .pipe(webp({ quality: 100 }))
+    .pipe(webp({ quality: 95 }))
     .pipe(dest(path.project.contentImg))
     .pipe(browserSync.stream());
 };
@@ -323,6 +324,7 @@ exports.favicon = favicons;
 exports.svg = svgSprite;
 exports.js = js;
 exports.jsBuild = jsBuild;
+exports.data = data;
 exports.server = server;
 exports.ieTest = ieTest;
 
